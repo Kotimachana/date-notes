@@ -1,0 +1,44 @@
+<div class="row headtxt">
+    Note Form
+</div>
+<mat-card class="card" appearance="outline">
+
+    <div class="title">
+        <div class="form-label">Title</div>
+        <mat-form-field appearance="outline" class="title-full-width">
+            <input matInput type="text" [(ngModel)]="titleModel" placeholder="Title">
+        </mat-form-field>
+        
+        <div class="form-label">Schedule Date</div>
+        <mat-form-field appearance="outline">
+            <input matInput [matDatepicker]="picker1" placeholder="Schedule Note" [(ngModel)]="datemodule">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="content">
+        <div class="form-label">Content</div>
+        <mat-form-field appearance="outline" class="content-full-width">
+            <textarea matInput type="text" [(ngModel)]="contentModel" placeholder="Enter your content">
+            </textarea>
+        </mat-form-field>
+    </div>
+
+    <div class="button">
+        <button mat-raised-button class="notebutton" (click)="createQuicknotes()">
+            Add Note</button>
+    </div>
+</mat-card>
+<div class="row headtxt" *ngIf="notedata">
+    Notes
+</div>
+<mat-card class="card" appearance="outline" *ngIf="notedata">
+
+    <p *ngFor="let i of quicknotes;let j=index">
+        <mat-card-title class="font">{{j+1}}. {{ i.title }} ({{ i.date }}) </mat-card-title>
+        <mat-card>
+            <textarea matInput type="text" class="textarea">
+                {{ i.content }}
+            </textarea>
+        </mat-card>
+</mat-card>

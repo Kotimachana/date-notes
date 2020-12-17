@@ -1,0 +1,47 @@
+.title {
+    min-width: 150px;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .content {
+    min-width: 150px;
+    // max-width: 500px;
+    width: 100%;
+  }
+  
+  .title-full-width {
+    width: 100%;
+  }
+  .content-full-width{
+    width: 100%;
+  }
+  .card{
+    width: 98%;
+    margin-left: 18px;
+  }
+  .button{
+    text-align: center
+  }
+  .headtxt{
+    margin-left: 2%;
+    margin-top: 1%;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(238, 73, 24);
+    }
+    .textarea{
+      margin-left: -54px
+    }
+    .form-label{
+      font-weight: 500;
+    }
+    .font{
+      font-size: 18px;
+    font-weight: 500;
+    }
+    .notebutton{
+      background-color: #475c97;
+      color: white;
+    }
+  
