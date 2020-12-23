@@ -8,7 +8,7 @@
         <mat-form-field appearance="outline" class="title-full-width">
             <input matInput type="text" [(ngModel)]="titleModel" placeholder="Title">
         </mat-form-field>
-        
+
         <div class="form-label">Schedule Date</div>
         <mat-form-field appearance="outline">
             <input matInput [matDatepicker]="picker1" placeholder="Schedule Note" [(ngModel)]="datemodule">
@@ -29,7 +29,40 @@
             Add Note</button>
     </div>
 </mat-card>
-<div class="row headtxt" *ngIf="notedata">
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="s_no">
+            <th mat-header-cell *matHeaderCellDef> SNo. </th>
+            <td mat-cell *matCellDef="let element"> {{element.s_no}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let element"> {{element.nte_nm}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.nte_dt}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="content">
+            <th mat-header-cell *matHeaderCellDef> Content </th>
+            <td mat-cell *matCellDef="let element"> {{element.cntnt}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+<!-- <div class="row headtxt" *ngIf="notedata">
     Notes
 </div>
 <mat-card class="card" appearance="outline" *ngIf="notedata">
@@ -41,4 +74,4 @@
                 {{ i.content }}
             </textarea>
         </mat-card>
-</mat-card>
+</mat-card> -->
